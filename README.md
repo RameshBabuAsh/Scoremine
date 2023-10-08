@@ -8,9 +8,10 @@ Commands :
 2) pip install django-crispy-forms
 3) pip install crispy-bootstrap4
 4) python manage.py runserver
+5) python manage.py createsuperuser
 
-If you want, you can delete the past details and login with this command
+Use the details to get into admin site and manage all details.
 
-python manage.py createsuperuser
+
 
 
