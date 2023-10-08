@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background: #0c1022;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #00ccff;
+}
+
+#chk{
+    display: none;
+}
+
+#chk:checked ~ .content{
+    animation: 2s animate;
+    transform: rotateY(180deg);
+}
+
+
+@keyframes animate{
+    0%{
+        transform: translateZ(0px);
+    }
+    50%{
+        transform: translateZ(30px);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+
+
+.login_form_container{
+    position: absolute;
+    width: 355px;
+    height: 505px;
+    max-width: 355px;
+    max-height: 505px;
+    background: #040717;
+    border-radius: 50px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+}
+.login_form_container::before{  
+    position: absolute;
+    width: 170%;
+    height: 170%;
+    content: '';
+    background-image: conic-gradient(transparent, transparent, transparent, #ee00ff);
+    animation: rotate_border 6s linear infinite;
+
+}
+.login_form_container::after{
+    
+    position: absolute;
+    width: 170%;
+    height: 170%;
+    content: '';
+    background-image: conic-gradient(transparent, transparent, transparent, #00ccff);
+    animation: rotate_border 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes rotate_border{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.card{
+    position:absolute;
+    width: 350px;
+    height: 500px;
+    perspective: 1500px;
+    z-index: 12;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    border-radius: 50px 5px;
+    transition: transform 1s cubic-bezier(0.75, 0.75, 0.75, 0.75);
+    z-index: 15;
+}
+
+ .back, .front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #0c1022;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    border-width: 2px;
+    border-radius: 50px 5px;
+}
+
+.back{
+    transform: rotateY(180deg);
+}
+
+.in{
+    height: 100%;
+    padding: 1.5em;
+    transform: translateZ(80px) scale(1);
+}
+
+.reg{
+    position: absolute;
+    top: 50px;
+    left: 110px;
+    font-size: 28px;
+    color: #00ccff;
+    font-weight: bolder;
+}
+
+.log{
+    position: absolute;
+    top: 80px;
+    left: 130px;
+    font-size: 28px;
+    color: #00ccff;
+    font-weight: bolder;
+}
+
+.log-button {
+    position: absolute;
+    right: 30px;
+    width: 82%;
+    padding: 7px;
+    color: #00ccff;
+    background: transparent;
+    border: 1px solid #ee00ff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+    bottom: 10%;
+}
+
+.log-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+}
+
+.log-button:hover span:after {
+    content: "\2192"; /* Right arrow */
+    position: absolute;
+    opacity: 1;
+    top: 0;
+    right: -10px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.log-button:hover span {
+  padding-right: 20px;
+}
+
+.log-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.reg-sub{
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 70px;
+    text-align: center;
+    line-height: 1.4rem;
+}
+
+.log-sub{
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 120px;
+    text-align: center;
+    line-height: 1.4rem;
+}
+
+input[type=text], input[type=password], input[type=email]{
+    width: 95%;
+    height: 30px;
+    padding: 15px;
+    margin: 8px 8px;
+    box-sizing: border-box;
+    color: #00ccff;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    border-bottom: 1px solid #ee00ff;
+}
+
+input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder{
+    color: #43899b;
+}
+
+
+.front label{
+    padding: 38px 6px;
+    font-size: 16px;
+    color: #00ccff;
+    float: right;
+    cursor: pointer;
+}
+
+.back label{
+    padding: 22px 6px;
+    font-size: 16px;
+    color: #00ccff;
+    float: right;
+    cursor: pointer;
+}
+
+#log-pass, #log-pass-slash{
+    position: absolute;
+    top: 271px;
+    left: 300px;
+}
+
+#log-pass{
+    display: none;
+}
+
+#reg-pass-1, #reg-pass-2, #reg-pass-slash-1, #reg-pass-slash-2{
+    position: absolute;
+    left: 300px;
+}
+
+#reg-pass-1, #reg-pass-slash-1{
+    top: 267px;
+}
+
+#reg-pass-1{
+    display: none;
+}
+
+#reg-pass-2{
+    display: none;
+}
+
+#reg-pass-2, #reg-pass-slash-2{
+    top: 314px;
+}

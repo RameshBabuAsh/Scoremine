@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{%static 'css/style2.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="shortcut icon" href="{% static 'images/scoremine_logo.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.css" integrity="sha512-UV9ujyMxyYubOSkCa8+OGzknJ1EilA19WPimPseyMcZaGIoO8l7iNphD0Mq/0R/lNkzBH70ai3tmurxAW0M2ww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Scoremine</title>
+</head>
+<body>
+    <div id="main">
+        <nav>
+            <img src="{%static 'images/scoremine_logo.png'%}" alt="logo">
+            <div class="right-nav">
+                {% if user.is_authenticated %}
+                <h3 style="color: white; padding-top: 8px;">Welcome {{user.username}}</h3>
+                <a href="/logout_request"><button>Logout</button></a>
+                {% else %}
+                <a href="/login"><button>Login</button></a>
+                {% endif %}
+                <a href="/help"><button>Help</button></a>
+            </div>
+        </nav>
+        <div data-scroll data-scroll-speed="-5"  class="vid">
+            <div class="bottom-page1">
+                <h1>Welcome to Scoremine</h1>
+                <div class="bottom-page1-inner">
+                    add and analyze <br>
+                    the games you play with your friends
+                </div>
+            </div>
+            <video id="background-video" autoplay muted loop>
+                <source src="{% static 'images/dark-sport.webm' %}" type="video/mp4">
+            </video>
+
+        </div>
+        <div class="page2">
+            <h1>GAME STATS & PLAYER PERFORMANCE ANALYSER</h1> <br><br>
+            <h2>ScoreMine is a scoring app that helps you <br> track your games and improve your skills. <br> Create player groups, add game entries, and <br> analyze your performance with detailed stats.</h2>
+        </div>
+        <center><h1 class="cont-head">Games in action</h1></center>
+        <div class="container">
+            <div class="slider">
+                <div class="box1" id="box">
+                    <img src="{% static 'images/volley.webp'%}" alt="">
+                </div>
+                <div class="box2" id="box">
+                    <img src="{% static 'images/bat_ball.webp'%}" alt="">
+                </div>
+                <div class="box3" id="box">
+                    <img src="{% static 'images/athletes.webp'%}" alt="">
+                </div>
+                <div class="box4" id="box">
+                    <img src="{% static 'images/batminton_strike.webp'%}" alt="">
+                </div>
+                <div class="box5" id="box">
+                    <img src="{% static 'images/soc-grp.webp'%}" alt="">
+                </div>
+                <div class="box6" id="box">
+                    <img src="{% static 'images/yoga.webp'%}" alt="">
+                </div>
+                <div class="box7" id="box">
+                    <img src="{% static 'images/soc.webp'%}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="slider-detail" >
+                <h3 id="slider-detail">Batminton tounament in Yale</h3>
+        </div>
+        <section class="reviews" id="reviews">
+        <div class="heading">
+            <span>Reviews</span>
+            <h1>What Our Customers Say</h1>
+        </div>
+        <div class="reviews-container">
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{%static 'images/thor.jpg'%}" alt="">
+                </div>
+                <h2>Thor Odinson</h2>
+                <div class="stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star-half"></i>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis expedita laborum, animi pariatur esse obcaecati delectus quam commodi!</p>
+            </div>
+
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{%static 'images/ironman.jpg'%}" alt="">
+                </div>
+                <h2>Tony Stark</h2>
+                <div class="stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star-half"></i>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit at nemo voluptatem. Quae ea earum veritatis dolores quos.</p>
+            </div>
+
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{%static 'images/cap.jpg'%}" alt="">
+                </div>
+                <h2>Steve Rogers</h2>
+                <div class="stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star-half"></i>
+                </div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste facere quibusdam incidunt ea? Doloribus illo ducimus doloremque beatae.</p>
+            </div>
+        </div>
+    </section>
+    <div class="copyright">
+        <p>&#169; Scoremine All Rights Reserved</p>
+        <div class="social">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{%static 'js/pass2.js'%}" ></script>
+</body>
+</html>

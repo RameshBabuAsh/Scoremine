@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoremine - Login</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{%static 'js/pass.js'%}"></script>
+</head>
+<body>
+    {% if x %}
+    <div class="messages" style="z-index: 100; position: absolute; top: 0%; color: bisque; padding-right: 15px;">
+            <p>{{ x }}</p>
+    </div>
+    <script>
+        setTimeout(function () {
+            var messages = document.querySelectorAll('.messages');
+            messages.forEach(function (message) {
+                message.style.display = 'none';
+            });
+        }, 8000);
+    </script>
+    {% endif %}
+    <div class="login_form_container">
+        <div class="card">
+            <input type="checkbox" name="" aria-hidden="true" id="chk">
+            <div class="content">
+                <div class="front">
+                    <div class="in">
+                        <form action="/login_request" method="post">
+                            {% csrf_token %}
+                            <center><h2 class="log">Login</h2></center>
+                            <center><p class="log-sub">Welcome to Scoremine - add & analyze your games</p></center>
+                            <input type="text" name="user" placeholder="Username" autocomplete="off" required>
+                            <input type="password" name="passwd" id="log-pass-input" placeholder="password" required>
+                            <i class="fa-solid fa-eye"id="log-pass" onclick="passShowHideLog()"></i>
+                            <i class="fa-solid fa-eye-slash"id="log-pass-slash" onclick="passShowHideLog()"></i>
+                            <label for="chk" aria-hidden="true">Don't have an account?</label>
+                            <button type="submit" class="log-button"><span>Login</span></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="in">
+                        <form action="/register_request" method="post">
+                            {% csrf_token %}
+                            <center><h2 class="reg">Register</h2></center>
+                            <center><p class="reg-sub">Welcome to Scoremine - add & analyze your games</p></center>
+                            <input type="text" name="user" placeholder="Username" autocomplete="off" required>
+                            <input type="email" name="email" placeholder="Email address" autocomplete="off" required>
+                            <input type="password" id="reg-pass-input-1" name="passwd1" placeholder="Password" required>
+                            <i class="fa-solid fa-eye" id="reg-pass-1" onclick="passShowHideReg1()"></i>
+                            <i class="fa-solid fa-eye-slash" id="reg-pass-slash-1" onclick="passShowHideReg1()"></i>
+                            <input type="password" name="passwd2" id="reg-pass-input-2" placeholder="Confirm Password" required>
+                            <i class="fa-solid fa-eye" id="reg-pass-2" onclick="passShowHideReg2()"></i>
+                            <i class="fa-solid fa-eye-slash" id="reg-pass-slash-2" onclick="passShowHideReg2()"></i>
+                            <label for="chk" aria-hidden="true">Already have an account?</label>
+                            <button type="submit" class="log-button"><span>Register</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
