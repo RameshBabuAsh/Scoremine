@@ -33,7 +33,7 @@ def send_email(to_address, from_address, message, subject):
 
         smtp = smtplib.SMTP("smtp-relay.sendinblue.com", 587)
         smtp.starttls()  # Enable TLS encryption
-        smtp.login("srameshbabu2004@gmail.com", "cUYEqWHFI8QyOSVT")
+        smtp.login("", "")
         smtp.sendmail(msg["From"], msg["To"].split(","), msg.as_string())
         smtp.quit()
         return True
